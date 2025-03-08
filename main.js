@@ -30,7 +30,7 @@ vars.clickButton.addEventListener('click', ()=>{
 
 vars.upgradeButton.addEventListener('click', ()=>{
     if (value < upgradeValue){
-        vars.clicks.textContent = `You can't buy the upgrade!`
+        vars.clicks.textContent = `| You can't buy the upgrade! |`
         setTimeout(() =>{
             vars.clicks.textContent = `| Clicks: ${value.toFixed(0)} |`
         }, 1500)
