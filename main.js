@@ -29,7 +29,7 @@ vars.upgradeButton.addEventListener('click', ()=>{
 
         vars.clicks.textContent = `| Clicks: ${value} |`
         vars.upgradeButton.textContent = `Upgrade Cost: ${upgradeValue}`
-        vars.multiplier.textContent = `Multiplier: ${multiplierValue} |`
+        vars.multiplier.textContent = `Multiplier: ${multiplierValue}x |`
     }
     
 })

@@ -12,6 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #e8e8e8;
 }
 
 #clickGame{
@@ -52,7 +53,7 @@ body{
     margin-top: 15px;
     padding:10px 15px;
     border-radius: 20px;
-    background-color: rgba(8, 42, 136, 0.521);
+    background-color: rgba(17, 70, 214, 0.521);
     font-size: 0.8em;
     transition: all 0.2s ease-in-out;
     color: white;
