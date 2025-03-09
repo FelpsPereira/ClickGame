@@ -24,7 +24,8 @@ vars.clickButton.addEventListener('click', ()=>{
     }, 500)
 
     if (value == 10){
-        vars.upgradeButton.style.display = 'block'
+        vars.upgradeButton.style = 'display:block; animation-name:surgimento;'
+        
     }
 })
 
