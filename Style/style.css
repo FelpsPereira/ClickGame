@@ -76,7 +76,7 @@ body{
     transition: all 0.2s ease-in-out;
     font-size: 1.3em;
     font-weight: bolder;
-    color: rgb(73, 109, 143);
+    color: rgba(21, 90, 155, 0.486);
     animation-duration: 1s;
     animation-name: nothing;
 }
