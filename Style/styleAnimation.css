@@ -17,7 +17,7 @@ button{
     width: 150px;
     height: 40px;
     border-radius: 30px;
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
     margin: 20px;
 }
@@ -26,7 +26,23 @@ button{
     width: 100px;
     height: 70px;
     background-color: darkcyan;
-    transition: all 0.2s ease-in-out;
-    margin: auto;
 }
 
+.animationCar{
+    position: relative;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name:nothing;
+}
+
+@keyframes mover {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}

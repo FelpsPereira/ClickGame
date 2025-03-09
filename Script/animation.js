@@ -1,22 +1,24 @@
 const
-esquerda = document.querySelector('#esquerda'), 
-direita = document.querySelector('#direita'), 
-carro = document.querySelector('#carro')
+Start = document.querySelector('#começar'), 
+Stop = document.querySelector('#parar'), 
+car = document.querySelector('#carro'),
+animationCar = document.querySelector('.animationCar')
 
 const init=()=>{
-    carro.style = 'position:relative; left:0px'
+    car.style = 'position:relative; left:0px;'
 }
 
-const move = () =>{
-    
-}
-
-direita.addEventListener('click', ()=>{
-    carro.style = `position:relative; left:${parseInt(carro.style.left) + 100}px`
+let pos;
+Stop.addEventListener('click', ()=>{
+    pos = parseInt(car.getBoundingClientRect().left)
+    console.log(pos)
+    animationCar.style = `animation-name:nothing; left:${pos}px;`
 })
 
-esquerda.addEventListener('click', ()=>{
-    carro.style = `position:relative; left:${parseInt(carro.style.left) - 100}px`
+Start.addEventListener('click', ()=>{
+    pos = parseInt(car.getBoundingClientRect().left)
+    console.log(pos)
+    animationCar.style = `animation-name:mover; left:${pos}px;`
 })
 
 init()

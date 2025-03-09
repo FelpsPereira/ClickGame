@@ -18,6 +18,7 @@ vars.clickButton.addEventListener('click', ()=>{
     vars.clicks.textContent = `| Clicks: ${value.toFixed(0)} |`
 
     document.body.appendChild(divMore)
+    divMore.style = 'animation-name:more;'
     setTimeout(() =>{
         divMore.remove()
     }, 500)
@@ -31,17 +32,29 @@ vars.clickButton.addEventListener('click', ()=>{
 vars.upgradeButton.addEventListener('click', ()=>{
     if (value < upgradeValue){
         vars.clicks.textContent = `| You can't buy the upgrade! |`
+        vars.upgradeButton.style.backgroundColor = 'rgba(214, 30, 17, 0.521)'
         setTimeout(() =>{
             vars.clicks.textContent = `| Clicks: ${value.toFixed(0)} |`
-        }, 1500)
+            vars.upgradeButton.style.backgroundColor = 'rgba(17, 70, 214, 0.521)'
+        }, 600)
     } else {
+
         value -= upgradeValue
         upgradeValue *= 3
         multiplierValue *= 1.2
 
         vars.clicks.textContent = `| Clicks: ${value.toFixed(0)} |`
+
+
+        vars.upgradeButton.style.backgroundColor = 'rgba(17, 214, 66, 0.521)'
+        setTimeout(() =>{
+            vars.upgradeButton.style.backgroundColor = 'rgba(17, 70, 214, 0.521)'
+        }, 600)
+
+
         vars.upgradeButton.textContent = `Upgrade Cost: ${upgradeValue.toFixed(0)}`
         vars.multiplier.textContent = `Multiplier: ${multiplierValue.toFixed(1)}x |`
+
     }
     
 })
