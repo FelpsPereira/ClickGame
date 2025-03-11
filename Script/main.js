@@ -87,8 +87,8 @@ vars.closeButton.addEventListener('click', ()=>{
     vars.store.style.display = 'none'
 })
 
-if (canBuyGoldenClick == true){
-    vars.GoldenClickButton.addEventListener('click', ()=>{
+vars.GoldenClickButton.addEventListener('click', ()=>{
+    if (canBuyGoldenClick == true){
         if (value < 100){
             vars.GoldenClickButton.textContent = 'Insufficient Clicks!'
             setTimeout(() =>{
@@ -101,5 +101,5 @@ if (canBuyGoldenClick == true){
             ownedGoldenClick = true
             canBuyGoldenClick = false
         }
-    })
-}
+    }
+})
