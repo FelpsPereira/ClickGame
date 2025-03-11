@@ -59,7 +59,7 @@ body{
     background-color: rgba(0, 0, 0, 0.219);
     font-weight: bold;
     color: white;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -138,14 +138,17 @@ body{
     flex-direction: column;
     width: 450px;
     height: 500px;
-    background-color: rgba(129, 129, 129, 0.322);
-    border-radius: 10px;
+    background-color: rgba(167, 167, 167, 0.322);
+    border-radius: 5px;
     align-items: center;
+    backdrop-filter: blur(10px);
 
-    h1{
+    #store-principal-title{
         margin:20px;
         color: white;
         text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.438);
+        border-radius: 10px;
+        font-size: 3em;
     }
 
     #closeButton{
@@ -153,11 +156,76 @@ body{
         width: 100%;
         text-align: center;
         height: 20px;
-        background-color: rgba(255, 0, 0, 0.288);
+        background-color: rgba(255, 0, 0, 0.582);
         color: white;
         font-weight: bolder;
+    }
+    #closeButton:hover{
+        background-color: rgba(255, 0, 0, 0.288);
+    }
+
+    .upgrade{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 85%;
+        height: 100px;
+        border:1px solid rgb(255, 255, 255);
+        margin: 30px 20px;
+        border-radius: 5px;
+        align-items: center;
         
     }
+
+    .upgrade-content{
+        text-align: left;
+    }
+
+    .header{
+        display: flex;
+    }
+
+    .upgrade h1,p{
+        margin-left:10px;
+        text-align: left;
+    }
+
+    .upgrade-description{
+        font-size: 0.7em;
+    }
+    .upgrade-name{
+        font-size: 1.2em;
+    }
+
+    .upgrade-image{
+        width: 50px;
+        height: 50px;
+        margin: 0px;
+        margin-right:10px;
+        transform: translateY(10px);
+    }
+
+    .upgrade-button-purchase{
+        all:unset;
+        background-color: rgb(113, 175, 113);
+        color: white;
+        border-radius: 10px;
+        width: 90%;
+        font-weight: bolder;
+    }
+
+    .upgrade-button-purchase:active{
+        background-color: rgb(126, 196, 126);
+    }
+
+
+    /*Images*/
+
+    #golden-click-image{
+        background: rgba(255, 255, 255, 0) url('../Images/Golden-Click.png') center center no-repeat;
+        background-size: cover;
+    }
+
 }
 
 @keyframes more {

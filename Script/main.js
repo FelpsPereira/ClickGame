@@ -8,17 +8,28 @@ const vars = {
     counter: document.querySelector('#counter'),
     storeButton: document.querySelector('#storeButton'),
     closeButton: document.querySelector('#closeButton'),
-    store: document.querySelector('#Store')
+    store: document.querySelector('#Store'),
+    GoldenClick: document.querySelector('#golden-click'),
+    GoldenClickButton: document.querySelector('#purchase-golden-click-button'),
+
+
 }
 
 
 
 vars.clickButton.addEventListener('click', ()=>{
+    vars.counter.style.display = 'flex'
     const divMore = document.createElement('div')
     divMore.id = 'moreDiv'
     divMore.textContent = `${(1 * multiplierValue).toFixed(1)}+`
     value += 1 * multiplierValue
-    vars.clicks.textContent = `Clicks: ${value.toFixed(0)}`
+
+    if(value > 10){
+        vars.clicks.textContent = `Clicks: ${value.toFixed(2)}`   
+    }else{
+        vars.clicks.textContent = `Clicks: ${value.toFixed(0)}`
+    }
+    
 
     document.body.appendChild(divMore)
     divMore.style = 'animation-name:more;'
@@ -66,10 +77,19 @@ vars.upgradeButton.addEventListener('click', ()=>{
 
 vars.storeButton.addEventListener('click', ()=>{
     console.log('Clicked')
-    vars.store.style.display = 'block'
+    vars.store.style.display = 'flex'
 })
 
 vars.closeButton.addEventListener('click', ()=>{
     console.log('Clicked2')
     vars.store.style.display = 'none'
+})
+
+vars.GoldenClickButton.addEventListener('click', ()=>{
+    if (value < 100){
+        console.log(`Sem dinheiro (${value})`)
+    }else if(value >= 100){
+        vars.clicks.textContent = `Clicks: ${(value-=100).toFixed(2)}`
+        vars.GoldenClick.style = 'background-color: rgba(60, 214, 99, 0.466);'
+    }
 })
