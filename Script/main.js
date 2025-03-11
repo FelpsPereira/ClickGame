@@ -1,4 +1,5 @@
-let value = 0, upgradeValue = 10, multiplierValue = 1, mults = 0
+let value = 0, upgradeValue = 10, multiplierValue = 1, mults = 0,isGolden = false, ownedGoldenClick = false, canBuyGoldenClick = true;
+
 
 const vars = {
     clickButton: document.querySelector('#clickButton'),
@@ -11,26 +12,23 @@ const vars = {
     store: document.querySelector('#Store'),
     GoldenClick: document.querySelector('#golden-click'),
     GoldenClickButton: document.querySelector('#purchase-golden-click-button'),
-
-
 }
-
-
 
 vars.clickButton.addEventListener('click', ()=>{
     vars.counter.style.display = 'flex'
     const divMore = document.createElement('div')
     divMore.id = 'moreDiv'
-    divMore.textContent = `${(1 * multiplierValue).toFixed(1)}+`
-    value += 1 * multiplierValue
-
-    if(value > 10){
-        vars.clicks.textContent = `Clicks: ${value.toFixed(2)}`   
-    }else{
-        vars.clicks.textContent = `Clicks: ${value.toFixed(0)}`
+    if (isGolden == true){
+        divMore.textContent = `${(5 * multiplierValue).toFixed(1)}+`
+        value += 5 * multiplierValue
+        vars.clicks.textContent = `Clicks: ${value}`
+        vars.clickButton.style = 'background-color: rgb(96, 195, 252); box-shadow: 0px 0px 10px rgba(12, 151, 231, 0.445);'
+        isGolden = false
+    } else {
+        divMore.textContent = `${(1 * multiplierValue).toFixed(1)}+`
+        value += 1 * multiplierValue
+        vars.clicks.textContent = `Clicks: ${value}`
     }
-    
-
     document.body.appendChild(divMore)
     divMore.style = 'animation-name:more;'
     setTimeout(() =>{
@@ -39,7 +37,14 @@ vars.clickButton.addEventListener('click', ()=>{
 
     if (value == 10){
         vars.upgradeButton.style = 'display:block; animation-name:surgimento;'
-        
+    }
+
+    if (ownedGoldenClick == true){
+        const nA = Math.floor(Math.random() * 11)
+        if (nA == 5) {
+            vars.clickButton.style = 'background-color: rgb(233, 225, 122); box-shadow: 0px 0px 10px rgba(216, 231, 12, 0.445);'
+            isGolden = true
+        }
     }
 })
 
@@ -55,8 +60,8 @@ vars.upgradeButton.addEventListener('click', ()=>{
     } else {
         vars.storeButton.style = 'display:block; animation-name:surgimento;'
         value -= upgradeValue
-        upgradeValue *= 3
-        multiplierValue *= 1.2
+        upgradeValue *= 5
+        multiplierValue *= 2
         mults++
 
         vars.clicks.textContent = `Clicks: ${value.toFixed(0)}`
@@ -76,20 +81,25 @@ vars.upgradeButton.addEventListener('click', ()=>{
 })
 
 vars.storeButton.addEventListener('click', ()=>{
-    console.log('Clicked')
     vars.store.style.display = 'flex'
 })
-
 vars.closeButton.addEventListener('click', ()=>{
-    console.log('Clicked2')
     vars.store.style.display = 'none'
 })
 
-vars.GoldenClickButton.addEventListener('click', ()=>{
-    if (value < 100){
-        console.log(`Sem dinheiro (${value})`)
-    }else if(value >= 100){
-        vars.clicks.textContent = `Clicks: ${(value-=100).toFixed(2)}`
-        vars.GoldenClick.style = 'background-color: rgba(60, 214, 99, 0.466);'
-    }
-})
+if (canBuyGoldenClick == true){
+    vars.GoldenClickButton.addEventListener('click', ()=>{
+        if (value < 100){
+            vars.GoldenClickButton.textContent = 'Insufficient Clicks!'
+            setTimeout(() =>{
+                vars.GoldenClickButton.textContent = 'Purchase - 100 Clicks'
+            }, 600)
+        }else if(value >= 100){
+            vars.clicks.textContent = `Clicks: ${(value-=100)}`
+            vars.GoldenClick.style = 'background-color: rgba(60, 214, 99, 0.466);'
+            vars.GoldenClickButton.textContent = 'Owned'
+            ownedGoldenClick = true
+            canBuyGoldenClick = false
+        }
+    })
+}
