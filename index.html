@@ -8,33 +8,34 @@
 </head>
 <body>
     <div id="counter">
-        <div id="Clicks"></div> 
-        <div id="Multiplier"></div>
-    </div>
-    <div id="clickGame">
-        <div id="buttons">
-            <button id="clickButton">Click Me</button>
-            <button id="upgradeButton">Upgrade Cost: 10</button>
-        </div>
-        <button id="storeButton">Store</button>
+        <div id="counter-clicks"></div> 
+        <div id="counter-multiplier"></div>
     </div>
 
+    <div id="clickGame">
+        <button id="click-button">Click Me</button>
+    </div>
+    
+    <footer>
+        <button id="upgrade-button">Upgrade Cost: 10</button>
+        <button id="store-button">Store</button>
+    </footer>
+
+    <!--Store-->
     <div id="Store">
         <h1 id="store-principal-title">Upgrade Store</h1>
-        <button id="closeButton">Close</button>
 
         <div class="upgrade" id="golden-click">
             <div class="header">
                 <div class="upgrade-content">
                     <h1 class="upgrade-name">Golden Click</h1>
-                    <p class="upgrade-description">Sometimes the button will turn golden, then will give 5 points.</p>
+                    <p class="upgrade-description">Sometimes the button will turn golden, then will give 5x points.</p>
                 </div>
                 <div class="upgrade-image" id="golden-click-image"></div>
             </div>
             <button class="upgrade-button-purchase" id="purchase-golden-click-button">Purchase - 100 Clicks</button>
         </div>
     </div>
-    <!--<div id="moreDiv">1+</div>-->
     <script src="Script/main.js"></script>
 </body>
 </html>
