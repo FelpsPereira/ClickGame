@@ -83,13 +83,13 @@ body{
     display: none;
     border-radius: 10px 10px 0px 0px;
     margin:0px 5px;
-    background-color: rgb(9, 107, 163);
+    background-color: rgb(93, 114, 126);
     padding: 5px;
     font-size: 0.8em;
     transition: all 0.2s ease-in-out;
     color: white;
     font-weight: bolder;
-    box-shadow: 0px 0px 10px rgba(7, 9, 95, 0.397);
+    box-shadow: 0px 0px 10px rgba(63, 63, 104, 0.397);
     animation-name: none;
     animation-duration: 0.3s;
     transition: all 0.2s ease-in-out;
@@ -107,9 +107,9 @@ body{
     position: absolute;
     z-index: 3;
     transition: all 0.2s ease-in-out;
-    font-size: 0.8em;
+    font-size: 1.5em;
     font-weight: bolder;
-    color: rgba(21, 90, 155, 0.486);
+    color: rgba(128, 128, 128, 0.322);
     animation-duration: 1s;
     animation-name: none;
 }
@@ -155,6 +155,7 @@ footer{
     transform: translateY(90px);
     animation-duration: 0.4s;
     animation-name: none;
+    overflow-y: auto;
 
     #store-principal-title{
         margin:20px;
@@ -170,9 +171,9 @@ footer{
         justify-content: space-around;
         width: 90%;
         height: 100px;
-        border:1px solid rgb(255, 255, 255);
-        margin: 30px 20px;
-        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.479);
+        margin: 10px 20px;
+        border-radius: 15px;
         align-items: center;
         
     }
@@ -226,14 +227,18 @@ footer{
         background-size: cover;
     }
 
+    #skleton-image{
+        
+    }
+
 }
 
 @keyframes more {
     from{
-        transform: translate(100px,-70px);
+        transform: translate(120px,0px);
     }
     to{
-        transform: translate(100px,-90px);
+        transform: translate(120px,-50px);
         opacity: 0;
     }
 }
@@ -257,7 +262,7 @@ footer{
 }
 @keyframes fadeOutStore {
     from {
-        transform: translateY(80px);
+        transform: translateY(90px);
     }
     to {
         transform: translateY(2000px);
@@ -267,17 +272,17 @@ footer{
 @keyframes goldenAnimation {
     0% {
         background-color: rgba(253, 251, 140, 0.774);
-        box-shadow: none;
-        color: black;
+        box-shadow: 0px 0px 100px yellow;
+        color: rgb(209, 206, 5);
     }
     50%{
         background-color: rgba(241, 230, 75, 0.959);
-        box-shadow: none;
-        color: black;
+        box-shadow: 0px 0px 100px yellow;
+        color: rgb(170, 168, 27);
     }
     100%{
         background-color: rgba(253, 251, 140, 0.774);
-        box-shadow: none;
-        color: black;
+        box-shadow: 0px 0px 100px yellow;
+        color: rgb(209, 206, 5);
     }
 }
