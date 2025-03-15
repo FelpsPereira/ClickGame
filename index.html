@@ -8,8 +8,11 @@
 </head>
 <body>
     <div id="counter">
-        <div id="counter-clicks"></div> 
-        <div id="counter-multiplier"></div>
+        <div id="counter-clicks"></div>
+        <div style="display:flex">
+            <div id="counter-multiplier">Multiplier: 1 | </div>
+            <div id="clicks-per-second">Clicks /s: 0</div>
+        </div>
     </div>
 
     <div id="clickGame">
@@ -36,25 +39,15 @@
             <button class="upgrade-button-purchase" id="purchase-golden-click-button">Purchase - 100 Clicks</button>
         </div>
 
-        <div class="upgrade" id="golden-click">
+        <div class="upgrade" id="skeleton">
             <div class="header">
                 <div class="upgrade-content">
-                    <h1 class="upgrade-name">Coming Soon...</h1>
-                    <p class="upgrade-description">...</p>
+                    <h1 class="upgrade-name">Skeleton</h1>
+                    <p class="upgrade-description">A skeleton will dance for 2x boost.</p>
                 </div>
                 <div class="upgrade-image" id="skeleton-image"></div>
             </div>
-            <button class="upgrade-button-purchase" id="purchase-skeleton-button">Purchase - ? Clicks</button>
-        </div>
-        <div class="upgrade" id="golden-click">
-            <div class="header">
-                <div class="upgrade-content">
-                    <h1 class="upgrade-name">Coming Soon...</h1>
-                    <p class="upgrade-description">...</p>
-                </div>
-                <div class="upgrade-image" id="skeleton-image"></div>
-            </div>
-            <button class="upgrade-button-purchase" id="purchase-skeleton-button">Purchase - ? Clicks</button>
+            <button class="upgrade-button-purchase" id="purchase-skeleton-button">Purchase - 1000 Clicks</button>
         </div>
     </div>
     <script type="module" src="Script/main.js"></script>

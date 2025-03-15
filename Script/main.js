@@ -3,28 +3,37 @@ upgradeValue = 10,
 multiplierValue = 1, 
 mults = 0,
 isGolden = false, 
-ownedGoldenClick = false, 
-canBuyGoldenClick = true, 
+ownedGoldenClick = false,
+ownedSkeleton = false, 
+canBuyGoldenClick = true,
+canBuySkeleton = true, 
 clicksPerSecond = 0, 
-points = 0;
+points = 0,
+m = 1;
 
+const multiValue = () =>{
+    if (isGolden == true){
+        m *= 5
+    }
+    if (ownedSkeleton == true){
+        m *= 2
+    }
+}
 
 vars.clickButton.addEventListener('click', ()=>{
     vars.counter.style.display = 'flex'
     const divMore = document.createElement('div')
     divMore.id = 'moreDiv'
+    multiValue()
     if (isGolden == true){
-        divMore.textContent = `${5 * multiplierValue}+`
-        points,value += 5 * multiplierValue
-        vars.clicks.textContent = `Clicks: ${value}`
         vars.clickButton.style = 'animation-name:none;'
         isGolden = false
-    } else{
-        points += 1 * multiplierValue
-        divMore.textContent = `${1 * multiplierValue}+`
-        value += 1 * multiplierValue
-        vars.clicks.textContent = `Clicks: ${value}`
     }
+    
+    divMore.textContent = `${m * multiplierValue}+`
+    points += m * multiplierValue
+    value += m * multiplierValue
+    vars.clicks.textContent = `Clicks: ${value}`
 
     vars.counter.appendChild(divMore)
     divMore.style = 'animation-name:more;'
@@ -43,6 +52,7 @@ vars.clickButton.addEventListener('click', ()=>{
             isGolden = true
         }
     }
+    m = 1;
 })
 
 vars.upgradeButton.addEventListener('click', ()=>{
@@ -57,7 +67,7 @@ vars.upgradeButton.addEventListener('click', ()=>{
     } else {
         vars.storeButton.style = 'display:block; animation-name:surgimento;'
         value -= upgradeValue
-        upgradeValue *= 5
+        if (upgradeValue > 0 && upgradeValue < 250){upgradeValue *= 5}else if (upgradeValue >= 250 && upgradeValue < 1000){upgradeValue *= 4}else if (upgradeValue > 1000){upgradeValue *= 10}
         multiplierValue *= 2
         mults++
         vars.clicks.textContent = `Clicks: ${value.toFixed(0)}`
@@ -99,10 +109,28 @@ vars.GoldenClickButton.addEventListener('click', ()=>{
     }
 })
 
+vars.SkeletonButton.addEventListener('click',()=>{
+    if (canBuySkeleton == true){
+        if (value < 1000){
+            vars.SkeletonButton.textContent = 'Insufficient Clicks!'
+            setTimeout(() =>{
+                vars.SkeletonButton.textContent = 'Purchase - 1000 Clicks'
+            }, 600)
+        }else if(value >= 1000){
+            vars.clicks.textContent = `Clicks: ${(value-=1000)}`
+            vars.Skeleton.style = 'background-color: rgba(60, 214, 99, 0.466);'
+            vars.SkeletonButton.textContent = 'Owned'
+            ownedSkeleton = true
+            canBuySkeleton = false
+        }
+    }
+})
+
 setInterval(()=>{
     clicksPerSecond = points
     points = 0
-    vars.multiplier.textContent = `Clicks /s: ${clicksPerSecond}`
+    vars.clicksPSecond.textContent = ` Clicks /s: ${clicksPerSecond}`
+    vars.multiplier.textContent = `Multiplier: ${ m * multiplierValue } | `
 }, 1000)
 
 import {vars} from './vars.js'
